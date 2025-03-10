@@ -13,22 +13,25 @@ const d = 0; // distance (km)
 const fuel = 5000; // remaining fuel (kg)
 const fbr = 0.5; // fuel burn rate (kg/s)
 
+// Function to convert km/h to m/s
+const kmhToMs = (VelocityKmh) => {
+  return VelocityKmh * (1000 / 3600);
+};
 
-const d2 = d + (vel*time) //calcultes new distance
-const rf = fbr*time //calculates remaining fuel
-const vel2 = calcNewVel(acc, vel, time) //calculates new velocity based on acceleration
+// Function to convert m/s to km/h
+const msToKmh = (velocityMs) => {
+  return velocityMs * (3600 / 1000);
+};
+
+const d2 = d + vel * time; //calcultes new distance
+const rf = fbr * time; //calculates remaining fuel
+const vel2 = calcNewVel(acc, vel, time); //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (vel, acc, time) => { 
-  return vel + (acc*time)
-}
+calcNewVel = (acc, vel, time) => {
+  return vel + acc * time;
+};
 
 console.log(`Corrected New Velocity: ${vel2} km/h`);
 console.log(`Corrected New Distance: ${d2} km`);
 console.log(`Corrected Remaining Fuel: ${rf} kg`);
-
-
-
-
-
-
