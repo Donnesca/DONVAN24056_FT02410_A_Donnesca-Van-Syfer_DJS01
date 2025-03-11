@@ -51,9 +51,10 @@ const rf = fuel - fuelConsumed; // Calculates remaining fuel
 const vel2 = calcNewVel(acc, vel, time); //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-//calcNewVel = (acc, vel, time) => {
-//return vel + acc * time;
-//};
+
+//The error was that the function was being reassigned after it was already defined.
+//Also the logic was incorrect because it was not converting to the correct units.
+//So I removed the reassignment and kept the original calcNewVel function.
 
 console.log(`Corrected New Velocity: ${vel2} km/h`);
 console.log(`Corrected New Distance: ${d2} km`);
