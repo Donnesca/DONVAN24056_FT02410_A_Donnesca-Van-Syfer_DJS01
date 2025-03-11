@@ -29,8 +29,10 @@ const calcNewVel = (acceleration, initilalVelocityKmh, timeSeconds) => {
   const newVelocityMs = initialVelocityMs + acceleration * timeSeconds;
   return msToKmh(newVelocityMs);
 };
-const d2 = d + (vel * time) / 3600; //calcultes new distance
-const rf = fbr * time; //calculates remaining fuel
+
+const d2 = d + (vel * time) / 3600; // Calcultes new distance in km, converting time to hours.
+const fuelConsumed = fbr * time; // Calculates fuels consumed
+const rf = fuel - fuelConsumed; // Calculates remaining fuel
 const vel2 = calcNewVel(acc, vel, time); //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
